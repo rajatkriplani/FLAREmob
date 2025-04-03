@@ -5,30 +5,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Handle splash screen
   const splashScreen = document.getElementById("splash-screen")
+
+  // Fix: Ensure splash screen is removed after a delay
   setTimeout(() => {
     splashScreen.classList.add("splash-hidden")
     setTimeout(() => {
       splashScreen.style.display = "none"
     }, 300)
-  }, 2000)
+  }, 1000) // Reduced to 1 second to avoid getting stuck
 
   // Get DOM elements
   const navItems = document.querySelectorAll(".nav-item")
+  const sidebarLinks = document.querySelectorAll(".sidebar-link")
   const pageSections = document.querySelectorAll(".page-section")
   const resetButton = document.getElementById("resetButton")
   const cameraButton = document.getElementById("camera-button")
   const tabButtons = document.querySelectorAll(".tab-button")
   const tabPanes = document.querySelectorAll(".tab-pane")
   const themeToggle = document.getElementById("theme-toggle-input")
-  const rangeSlider = document.getElementById("isochrone-duration")
-  const rangeValue = document.querySelector(".range-value")
-  const numberInputs = document.querySelectorAll(".number-input")
   const uploadArea = document.querySelector(".upload-area")
   const fileInfo = document.querySelector(".file-info")
 
   // Function to update active navigation link
   function updateActiveNavLink(sectionId) {
     navItems.forEach((item) => {
+      const itemSection = item.getAttribute("data-section")
+      if (itemSection === sectionId) {
+        item.classList.add("active")
+      } else {
+        item.classList.remove("active")
+      }
+    })
+
+    sidebarLinks.forEach((item) => {
       const itemSection = item.getAttribute("data-section")
       if (itemSection === sectionId) {
         item.classList.add("active")
@@ -63,6 +72,16 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
+  // Sidebar links event listeners
+  sidebarLinks.forEach((item) => {
+    item.addEventListener("click", function (event) {
+      event.preventDefault()
+      const sectionId = this.getAttribute("data-section")
+      showPageSection(sectionId)
+      window.location.hash = `#${sectionId}`
+    })
+  })
+
   // Initial page load
   function loadInitialSection() {
     const hash = window.location.hash.substring(1)
@@ -87,32 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // Show corresponding tab pane
       tabPanes.forEach((pane) => pane.classList.remove("active"))
       document.getElementById(`${tabId}-tab`).classList.add("active")
-    })
-  })
-
-  // Range slider functionality
-  if (rangeSlider && rangeValue) {
-    rangeSlider.addEventListener("input", () => {
-      rangeValue.textContent = `${rangeSlider.value} min`
-    })
-  }
-
-  // Number input functionality
-  numberInputs.forEach((container) => {
-    const input = container.querySelector("input")
-    const decrementBtn = container.querySelector(".number-decrement")
-    const incrementBtn = container.querySelector(".number-increment")
-
-    decrementBtn.addEventListener("click", () => {
-      if (input.value > input.min) {
-        input.value = Number.parseInt(input.value) - Number.parseInt(input.step || 1)
-      }
-    })
-
-    incrementBtn.addEventListener("click", () => {
-      if (!input.max || input.value < input.max) {
-        input.value = Number.parseInt(input.value) + Number.parseInt(input.step || 1)
-      }
     })
   })
 
@@ -331,6 +324,12 @@ document.addEventListener("DOMContentLoaded", () => {
     
     .toast-info i {
       color: var(--primary);
+    }
+
+    @media (min-width: 900px) {
+      .toast {
+        bottom: 2rem;
+      }
     }
   `
   document.head.appendChild(toastStyles)
