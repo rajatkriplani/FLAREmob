@@ -22,20 +22,42 @@
       <p class="splash-subtitle">Facility Location & Routing Explorer</p>
     </div>
 
+    <!-- Sidebar for desktop -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon-container">
+            <i data-lucide="map-pin" class="logo-icon"></i>
+          </div>
+          <h1 class="logo-text">FLARE</h1>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="sidebar-link active" data-section="dashboard">
+          <i data-lucide="layout-dashboard" class="sidebar-icon"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#datainput" class="sidebar-link" data-section="datainput">
+          <i data-lucide="file-input" class="sidebar-icon"></i>
+          <span>Data Input</span>
+        </a>
+        <a href="#controls" class="sidebar-link" data-section="controls">
+          <i data-lucide="sliders" class="sidebar-icon"></i>
+          <span>Controls</span>
+        </a>
+        <a href="#settings" class="sidebar-link" data-section="settings">
+          <i data-lucide="settings" class="sidebar-icon"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+    </aside>
+
     <!-- App Content -->
     <div class="app-content">
       <!-- Dashboard Section -->
       <section id="dashboard-section" class="page-section">
         <div class="page-header">
-          <div class="user-welcome">
-            <h1>Hello, User</h1>
-            <p>Welcome to your dashboard</p>
-          </div>
-          <div class="header-actions">
-            <button class="icon-button">
-              <i data-lucide="bell" class="icon"></i>
-            </button>
-          </div>
+          <h1>Dashboard</h1>
         </div>
         
         <div class="status-overview">
@@ -118,26 +140,12 @@
             </div>
           </div>
         </div>
-        
-        <div class="quick-actions">
-          <button class="action-button primary">
-            <i data-lucide="play" class="icon"></i>
-            <span>Stream KML</span>
-          </button>
-          <button class="action-button secondary">
-            <i data-lucide="trash-2" class="icon"></i>
-            <span>Clear All</span>
-          </button>
-        </div>
       </section>
 
       <!-- Data Input Section -->
       <section id="datainput-section" class="page-section hidden">
         <div class="page-header">
           <h1>Data Input</h1>
-          <button class="icon-button">
-            <i data-lucide="help-circle" class="icon"></i>
-          </button>
         </div>
         
         <div class="tab-container">
@@ -194,21 +202,13 @@
               <div class="setting-description">Must be greater than 0</div>
             </div>
             <div class="setting-control">
-              <div class="number-input">
-                <button class="number-decrement">
-                  <i data-lucide="minus" class="icon"></i>
-                </button>
-                <input 
-                  id="num-facilities" 
-                  type="number" 
-                  min="1"
-                  value="3" 
-                  step="1" 
-                />
-                <button class="number-increment">
-                  <i data-lucide="plus" class="icon"></i>
-                </button>
-              </div>
+              <input 
+                id="num-facilities" 
+                type="number" 
+                min="1"
+                value="3" 
+                step="1" 
+              />
             </div>
           </div>
           
@@ -218,17 +218,15 @@
               <div class="setting-description">Range: 5-60 minutes</div>
             </div>
             <div class="setting-control">
-              <div class="range-slider">
-                <input 
-                  id="isochrone-duration" 
-                  type="range" 
-                  min="5" 
-                  max="60"
-                  value="15" 
-                  step="5" 
-                />
-                <div class="range-value">15 min</div>
-              </div>
+              <input 
+                id="isochrone-duration" 
+                type="number" 
+                min="5" 
+                max="60"
+                value="15" 
+                step="5" 
+              />
+              <span class="input-suffix">min</span>
             </div>
           </div>
         </div>
@@ -245,9 +243,6 @@
       <section id="controls-section" class="page-section hidden">
         <div class="page-header">
           <h1>Controls</h1>
-          <button class="icon-button">
-            <i data-lucide="help-circle" class="icon"></i>
-          </button>
         </div>
         
         <div class="control-grid">
@@ -284,28 +279,28 @@
         </div>
         
         <div class="layer-controls">
-          <label class="switch-control">
+          <label class="toggle-control">
             <input type="checkbox" checked />
-            <span class="switch-track">
-              <span class="switch-thumb"></span>
+            <span class="toggle-track">
+              <span class="toggle-thumb"></span>
             </span>
-            <span class="switch-label">Facilities</span>
+            <span class="toggle-label">Facilities</span>
           </label>
           
-          <label class="switch-control">
+          <label class="toggle-control">
             <input type="checkbox" checked />
-            <span class="switch-track">
-              <span class="switch-thumb"></span>
+            <span class="toggle-track">
+              <span class="toggle-thumb"></span>
             </span>
-            <span class="switch-label">Service Areas</span>
+            <span class="toggle-label">Service Areas</span>
           </label>
           
-          <label class="switch-control">
+          <label class="toggle-control">
             <input type="checkbox" />
-            <span class="switch-track">
-              <span class="switch-thumb"></span>
+            <span class="toggle-track">
+              <span class="toggle-thumb"></span>
             </span>
-            <span class="switch-label">Demand Points</span>
+            <span class="toggle-label">Demand Points</span>
           </label>
         </div>
       </section>
@@ -354,7 +349,7 @@
                 </div>
                 <div>
                   <h3>QR Code Connection</h3>
-                  <p>Scan QR code from Liquid Galaxy</p>
+                  <p>Scan QR code from LG</p>
                 </div>
               </div>
               <div class="setting-control">
@@ -470,7 +465,7 @@
       </section>
     </div>
 
-    <!-- Bottom Navigation -->
+    <!-- Bottom Navigation (mobile only) -->
     <nav class="nav-bar">
       <a href="#dashboard" class="nav-item active" data-section="dashboard">
         <i data-lucide="layout-dashboard" class="nav-icon"></i>
