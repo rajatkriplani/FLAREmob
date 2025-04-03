@@ -3,218 +3,239 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FLARE - Facility Location and Routing Explorer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>FLARE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 
 <body>
   <div class="app-container">
-    <!-- Header -->
-    <header class="app-header">
-      <div class="header-content">
-        <div class="logo">
-          <div class="logo-icon-container">
-            <i data-lucide="map-pin" class="logo-icon"></i>
-          </div>
-          <h1 class="logo-text">FLARE</h1>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+      <div class="splash-logo">
+        <div class="splash-icon-container">
+          <i data-lucide="map-pin" class="splash-icon"></i>
         </div>
-        <div class="header-actions">
-          <button id="notifications-btn" class="icon-btn">
-            <i data-lucide="bell" class="icon"></i>
-          </button>
-        </div>
+        <h1 class="splash-title">FLARE</h1>
       </div>
-    </header>
+      <p class="splash-subtitle">Facility Location & Routing Explorer</p>
+    </div>
 
-    <!-- Main content -->
-    <main class="main-content">
+    <!-- App Content -->
+    <div class="app-content">
       <!-- Dashboard Section -->
       <section id="dashboard-section" class="page-section">
+        <div class="page-header">
+          <div class="user-welcome">
+            <h1>Hello, User</h1>
+            <p>Welcome to your dashboard</p>
+          </div>
+          <div class="header-actions">
+            <button class="icon-button">
+              <i data-lucide="bell" class="icon"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="status-overview">
+          <div class="status-card connected">
+            <div class="status-icon-container">
+              <i data-lucide="check-circle" class="status-icon"></i>
+            </div>
+            <div class="status-info">
+              <h3>Connected</h3>
+              <p>192.168.1.101</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-header">
+              <h3>Facilities</h3>
+              <i data-lucide="building" class="stat-icon"></i>
+            </div>
+            <div class="stat-value">3</div>
+            <div class="stat-footer">Last updated 2h ago</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-header">
+              <h3>Routes</h3>
+              <i data-lucide="route" class="stat-icon"></i>
+            </div>
+            <div class="stat-value">45</div>
+            <div class="stat-footer">Last updated 2h ago</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-header">
+              <h3>Isochrone</h3>
+              <i data-lucide="clock" class="stat-icon"></i>
+            </div>
+            <div class="stat-value">15<span class="stat-unit">min</span></div>
+            <div class="stat-footer">Last updated 2h ago</div>
+          </div>
+        </div>
+        
         <div class="section-header">
-          <h1 class="section-title">Dashboard</h1>
-          <p class="section-description">Overview of facility operations and status</p>
+          <h2>Recent Activity</h2>
+          <button class="text-button">View All</button>
         </div>
         
-        <div class="card status-card">
-          <div class="card-header">
-            <h2 class="card-title">LG Rig Status</h2>
-            <span class="status-badge success">
-              <div class="status-dot"></div>
-              Connected
-            </span>
-          </div>
-          <div class="card-content">
-            <div class="status-item">
-              <div class="status-icon">
-                <i data-lucide="network"></i>
-              </div>
-              <span>IP: 192.168.1.101</span>
+        <div class="activity-timeline">
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i data-lucide="zap" class="icon"></i>
             </div>
-            <div class="status-item">
-              <div class="status-icon">
-                <i data-lucide="signal"></i>
-              </div>
-              <span>Signal Strength: Excellent</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card-row">
-          <div class="card status-card">
-            <div class="card-header">
-              <h2 class="card-title">Last Optimization</h2>
-              <span class="timestamp">Mar 24, 2025 - 14:12</span>
-            </div>
-            <div class="card-content">
-              <div class="status-item">
-                <div class="status-icon">
-                  <i data-lucide="building"></i>
-                </div>
-                <span>3 Facilities</span>
-              </div>
-              <div class="status-item">
-                <div class="status-icon">
-                  <i data-lucide="clock"></i>
-                </div>
-                <span>15 min isochrone</span>
-              </div>
+            <div class="timeline-content">
+              <div class="timeline-time">2 hours ago</div>
+              <h3 class="timeline-title">Optimization Completed</h3>
+              <p class="timeline-description">3 facilities, 45 routes generated</p>
             </div>
           </div>
           
-          <div class="card status-card">
-            <div class="card-header">
-              <h2 class="card-title">Last KML Sent</h2>
-              <span class="timestamp">Mar 24, 2025 - 14:12</span>
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i data-lucide="send" class="icon"></i>
             </div>
-            <div class="card-content">
-              <div class="status-item">
-                <div class="status-icon">
-                  <i data-lucide="map-pin"></i>
-                </div>
-                <span>Facilities: 3</span>
-              </div>
-              <div class="status-item">
-                <div class="status-icon">
-                  <i data-lucide="route"></i>
-                </div>
-                <span>Routes: 45</span>
-              </div>
+            <div class="timeline-content">
+              <div class="timeline-time">2 hours ago</div>
+              <h3 class="timeline-title">KML Streamed to LG</h3>
+              <p class="timeline-description">Visualization sent to Liquid Galaxy</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i data-lucide="file-input" class="icon"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-time">3 hours ago</div>
+              <h3 class="timeline-title">Data Imported</h3>
+              <p class="timeline-description">45 demand points from CSV</p>
             </div>
           </div>
         </div>
         
-        <div class="card activity-card">
-          <h2 class="card-title">Recent Activity</h2>
-          <div class="activity-list">
-            <div class="activity-item">
-              <div class="activity-icon">
-                <i data-lucide="clock"></i>
-              </div>
-              <div class="activity-content">
-                <h3 class="activity-title">Optimization Completed</h3>
-                <p class="activity-description">3 facilities, 45 routes generated</p>
-              </div>
-              <div class="activity-time">2h ago</div>
-            </div>
-            
-            <div class="activity-item">
-              <div class="activity-icon">
-                <i data-lucide="clock"></i>
-              </div>
-              <div class="activity-content">
-                <h3 class="activity-title">KML Streamed to LG</h3>
-                <p class="activity-description">Visualization sent to Liquid Galaxy</p>
-              </div>
-              <div class="activity-time">2h ago</div>
-            </div>
-            
-            <div class="activity-item">
-              <div class="activity-icon">
-                <i data-lucide="clock"></i>
-              </div>
-              <div class="activity-content">
-                <h3 class="activity-title">Data Imported</h3>
-                <p class="activity-description">45 demand points from CSV</p>
-              </div>
-              <div class="activity-time">3h ago</div>
-            </div>
-          </div>
+        <div class="quick-actions">
+          <button class="action-button primary">
+            <i data-lucide="play" class="icon"></i>
+            <span>Stream KML</span>
+          </button>
+          <button class="action-button secondary">
+            <i data-lucide="trash-2" class="icon"></i>
+            <span>Clear All</span>
+          </button>
         </div>
       </section>
 
       <!-- Data Input Section -->
       <section id="datainput-section" class="page-section hidden">
-        <div class="section-header">
-          <h1 class="section-title">Data Input</h1>
-          <p class="section-description">Upload and configure your facility data</p>
+        <div class="page-header">
+          <h1>Data Input</h1>
+          <button class="icon-button">
+            <i data-lucide="help-circle" class="icon"></i>
+          </button>
         </div>
         
-        <div class="card">
-          <h2 class="card-title">Demand & Facility Location Data</h2>
-          
-          <div class="drop-zone">
-            <i data-lucide="upload" class="drop-zone-icon"></i>
-            <p class="drop-zone-text">Tap to upload CSV file</p>
-            <p class="drop-zone-subtext">or drag and drop</p>
+        <div class="tab-container">
+          <div class="tab-buttons">
+            <button class="tab-button active" data-tab="upload">Upload</button>
+            <button class="tab-button" data-tab="manual">Manual</button>
           </div>
           
-          <div class="divider">
-            <span>OR</span>
-          </div>
-          
-          <div class="form-group">
-            <label for="manual-data" class="form-label">Manual Input</label>
-            <textarea 
-              id="manual-data" 
-              rows="6"
-              class="form-textarea"
-              placeholder="40.7128, -74.0060, facility&#10;40.7589, -73.9851, demand"
-            ></textarea>
-            <p class="form-help">Format: latitude, longitude, type (facility or demand)</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2 class="card-title">Optimization Settings</h2>
-          
-          <div class="form-group">
-            <label for="num-facilities" class="form-label">Number of Facilities</label>
-            <input 
-              id="num-facilities" 
-              type="number" 
-              min="1"
-              class="form-input"
-              placeholder="Enter number of facilities" 
-              value="3" 
-              step="1" 
-            />
-            <p class="form-help">Must be greater than 0</p>
-          </div>
-          
-          <div class="form-group">
-            <label for="isochrone-duration" class="form-label">Isochrone Duration (minutes)</label>
-            <div class="input-with-suffix">
-              <input 
-                id="isochrone-duration" 
-                type="number" 
-                min="5" 
-                max="60"
-                class="form-input"
-                placeholder="Enter duration (5-60 minutes)" 
-                value="15" 
-                step="5" 
-              />
-              <span class="input-suffix">minutes</span>
+          <div class="tab-content">
+            <div class="tab-pane active" id="upload-tab">
+              <div class="upload-area">
+                <i data-lucide="upload-cloud" class="upload-icon"></i>
+                <h3>Drop your CSV file here</h3>
+                <p>or</p>
+                <button class="button outline">Browse Files</button>
+              </div>
+              
+              <div class="file-info hidden">
+                <div class="file-preview">
+                  <i data-lucide="file-text" class="file-icon"></i>
+                  <div class="file-details">
+                    <h4 class="file-name">locations.csv</h4>
+                    <p class="file-size">24 KB</p>
+                  </div>
+                </div>
+                <button class="icon-button danger">
+                  <i data-lucide="x" class="icon"></i>
+                </button>
+              </div>
             </div>
-            <p class="form-help">Range: 5-60 minutes</p>
+            
+            <div class="tab-pane" id="manual-tab">
+              <div class="form-group">
+                <label for="manual-data">Enter Location Data</label>
+                <textarea 
+                  id="manual-data" 
+                  rows="6"
+                  placeholder="40.7128, -74.0060, facility&#10;40.7589, -73.9851, demand"
+                ></textarea>
+                <div class="form-hint">Format: latitude, longitude, type (facility or demand)</div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="action-bar">
-          <button class="btn btn-primary btn-lg">
-            <i data-lucide="calculator"></i>
+        
+        <div class="section-header">
+          <h2>Optimization Settings</h2>
+        </div>
+        
+        <div class="settings-card">
+          <div class="setting-item">
+            <div class="setting-info">
+              <label for="num-facilities">Number of Facilities</label>
+              <div class="setting-description">Must be greater than 0</div>
+            </div>
+            <div class="setting-control">
+              <div class="number-input">
+                <button class="number-decrement">
+                  <i data-lucide="minus" class="icon"></i>
+                </button>
+                <input 
+                  id="num-facilities" 
+                  type="number" 
+                  min="1"
+                  value="3" 
+                  step="1" 
+                />
+                <button class="number-increment">
+                  <i data-lucide="plus" class="icon"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="setting-item">
+            <div class="setting-info">
+              <label for="isochrone-duration">Isochrone Duration</label>
+              <div class="setting-description">Range: 5-60 minutes</div>
+            </div>
+            <div class="setting-control">
+              <div class="range-slider">
+                <input 
+                  id="isochrone-duration" 
+                  type="range" 
+                  min="5" 
+                  max="60"
+                  value="15" 
+                  step="5" 
+                />
+                <div class="range-value">15 min</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="action-footer">
+          <button class="button primary">
+            <i data-lucide="calculator" class="icon"></i>
             <span>Start Optimization</span>
           </button>
         </div>
@@ -222,111 +243,126 @@
 
       <!-- Controls Section -->
       <section id="controls-section" class="page-section hidden">
-        <div class="section-header">
-          <h1 class="section-title">Controls</h1>
-          <p class="section-description">Manage Liquid Galaxy visualization settings</p>
+        <div class="page-header">
+          <h1>Controls</h1>
+          <button class="icon-button">
+            <i data-lucide="help-circle" class="icon"></i>
+          </button>
         </div>
         
-        <div class="action-cards">
-          <div class="card action-card">
-            <h2 class="card-title">Stream to LG</h2>
-            <p class="card-description">Stream KML files to Liquid Galaxy rig</p>
-            <button class="btn btn-primary btn-block">
-              <i data-lucide="play"></i>Stream KML
-            </button>
-          </div>
-          
-          <div class="card action-card">
-            <h2 class="card-title">Clear Overlays</h2>
-            <p class="card-description">Remove all visual overlays from LG</p>
-            <button class="btn btn-danger btn-block">
-              <i data-lucide="trash-2"></i>Clear All
-            </button>
-          </div>
-          
-          <div class="card action-card">
-            <h2 class="card-title">Re-launch LG Rig</h2>
-            <p class="card-description">Last re-launch: <span id="lastResetTime">Mar 24, 2025 - 14:12</span></p>
-            <p class="card-description">Restore default LG system state and camera position</p>
-            <button id="resetButton" class="btn btn-secondary btn-block">
-              <i data-lucide="rotate-ccw"></i>Re-launch System
-            </button>
-          </div>
-        </div>
-        
-        <div class="card">
-          <h2 class="card-title">Visualization Options</h2>
-          
-          <div class="visualization-options">
-            <h3 class="options-title">Layer Visibility</h3>
-            <div class="toggle-list">
-              <label class="toggle">
-                <input type="checkbox" class="toggle-input" checked />
-                <div class="toggle-control">
-                  <div class="toggle-indicator"></div>
-                </div>
-                <span class="toggle-label">Facilities</span>
-              </label>
-              
-              <label class="toggle">
-                <input type="checkbox" class="toggle-input" checked />
-                <div class="toggle-control">
-                  <div class="toggle-indicator"></div>
-                </div>
-                <span class="toggle-label">Service Areas</span>
-              </label>
-              
-              <label class="toggle">
-                <input type="checkbox" class="toggle-input" />
-                <div class="toggle-control">
-                  <div class="toggle-indicator"></div>
-                </div>
-                <span class="toggle-label">Demand Points</span>
-              </label>
+        <div class="control-grid">
+          <div class="control-card">
+            <div class="control-icon stream">
+              <i data-lucide="play" class="icon"></i>
             </div>
+            <h3>Stream to LG</h3>
+            <p>Stream KML files to Liquid Galaxy rig</p>
+            <button class="button primary full-width">Stream KML</button>
           </div>
+          
+          <div class="control-card">
+            <div class="control-icon clear">
+              <i data-lucide="trash-2" class="icon"></i>
+            </div>
+            <h3>Clear Overlays</h3>
+            <p>Remove all visual overlays from LG</p>
+            <button class="button danger full-width">Clear All</button>
+          </div>
+          
+          <div class="control-card">
+            <div class="control-icon relaunch">
+              <i data-lucide="rotate-ccw" class="icon"></i>
+            </div>
+            <h3>Re-launch LG Rig</h3>
+            <p>Last re-launch: <span id="lastResetTime">Mar 24, 2025 - 14:12</span></p>
+            <button id="resetButton" class="button secondary full-width">Re-launch System</button>
+          </div>
+        </div>
+        
+        <div class="section-header">
+          <h2>Layer Visibility</h2>
+        </div>
+        
+        <div class="layer-controls">
+          <label class="switch-control">
+            <input type="checkbox" checked />
+            <span class="switch-track">
+              <span class="switch-thumb"></span>
+            </span>
+            <span class="switch-label">Facilities</span>
+          </label>
+          
+          <label class="switch-control">
+            <input type="checkbox" checked />
+            <span class="switch-track">
+              <span class="switch-thumb"></span>
+            </span>
+            <span class="switch-label">Service Areas</span>
+          </label>
+          
+          <label class="switch-control">
+            <input type="checkbox" />
+            <span class="switch-track">
+              <span class="switch-thumb"></span>
+            </span>
+            <span class="switch-label">Demand Points</span>
+          </label>
         </div>
       </section>
 
       <!-- Settings Section -->
       <section id="settings-section" class="page-section hidden">
-        <div class="section-header">
-          <h1 class="section-title">Settings</h1>
-          <p class="section-description">Configure your Liquid Galaxy connection</p>
+        <div class="page-header">
+          <h1>Settings</h1>
         </div>
         
-        <!-- Theme Toggle -->
-        <div class="card">
-          <h2 class="card-title">Appearance</h2>
-          <div class="settings-row">
-            <div class="settings-label">
-              <i data-lucide="sun" class="settings-icon"></i>
-              <span>Theme</span>
-            </div>
-            <label class="theme-toggle">
-              <input type="checkbox" id="theme-toggle-input" class="theme-toggle-input">
-              <div class="theme-toggle-control">
-                <div class="theme-toggle-indicator"></div>
-                <div class="theme-toggle-labels">
-                  <span class="theme-toggle-light">Light</span>
-                  <span class="theme-toggle-dark">Dark</span>
+        <div class="settings-group">
+          <h2 class="settings-group-title">Appearance</h2>
+          
+          <div class="settings-card">
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-icon">
+                  <i data-lucide="palette" class="icon"></i>
+                </div>
+                <div>
+                  <h3>Theme</h3>
+                  <p>Choose light or dark theme</p>
                 </div>
               </div>
-            </label>
+              <div class="setting-control">
+                <label class="theme-switch">
+                  <input type="checkbox" id="theme-toggle-input">
+                  <span class="theme-slider">
+                    <i data-lucide="sun" class="theme-icon light"></i>
+                    <i data-lucide="moon" class="theme-icon dark"></i>
+                  </span>
+                </label>
+              </div>
+            </div>
           </div>
         </div>
         
-        <div class="card">
-          <h2 class="card-title">Connect to LG Rig</h2>
+        <div class="settings-group">
+          <h2 class="settings-group-title">Connection</h2>
           
-          <div class="connection-options">
-            <div class="qr-section">
-              <label class="form-label">Scan QR to Connect</label>
-              <button id="camera-button" class="btn btn-primary btn-block">
-                <i data-lucide="camera"></i>
-                Open Camera
-              </button>
-              <p class="form-help">Open your camera to scan the QR code displayed on your Liquid Galaxy master node</p>
+          <div class="settings-card">
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-icon">
+                  <i data-lucide="qr-code" class="icon"></i>
+                </div>
+                <div>
+                  <h3>QR Code Connection</h3>
+                  <p>Scan QR code from Liquid Galaxy</p>
+                </div>
+              </div>
+              <div class="setting-control">
+                <button id="camera-button" class="button primary">
+                  <i data-lucide="camera" class="icon"></i>
+                  <span>Scan</span>
+                </button>
+              </div>
             </div>
             
             <div class="divider">
@@ -334,108 +370,114 @@
             </div>
             
             <div class="form-group">
-              <label for="username" class="form-label">Username</label>
+              <label for="username">Username</label>
               <input 
                 id="username" 
                 type="text" 
                 placeholder="Enter username"
-                class="form-input"
               />
             </div>
             
             <div class="form-group">
-              <label for="password" class="form-label">Password</label>
+              <label for="password">Password</label>
               <input 
                 id="password" 
                 type="password" 
                 placeholder="Enter password"
-                class="form-input"
               />
             </div>
             
             <div class="form-group">
-              <label for="ip-address" class="form-label">IP Address</label>
+              <label for="ip-address">IP Address</label>
               <input 
                 id="ip-address" 
                 type="text" 
                 placeholder="192.168.1.100"
-                class="form-input"
               />
             </div>
             
-            <div class="form-group">
-              <label for="port" class="form-label">Port</label>
-              <input 
-                id="port" 
-                type="text" 
-                placeholder="8080"
-                class="form-input"
-              />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="port">Port</label>
+                <input 
+                  id="port" 
+                  type="text" 
+                  placeholder="8080"
+                />
+              </div>
+              
+              <div class="form-group">
+                <label for="num-rigs">Number of Rigs</label>
+                <input 
+                  id="num-rigs" 
+                  type="number" 
+                  placeholder="3"
+                />
+              </div>
             </div>
             
-            <div class="form-group">
-              <label for="num-rigs" class="form-label">Number of Rigs</label>
-              <input 
-                id="num-rigs" 
-                type="number" 
-                placeholder="3"
-                class="form-input"
-              />
-            </div>
+            <button class="button primary full-width">
+              <i data-lucide="link" class="icon"></i>
+              <span>Connect</span>
+            </button>
           </div>
-          
-          <button class="btn btn-primary btn-block mt-20">
-            <i data-lucide="link"></i>Connect
-          </button>
         </div>
         
-        <div class="card">
-          <h2 class="card-title">API Configuration</h2>
+        <div class="settings-group">
+          <h2 class="settings-group-title">API Configuration</h2>
           
-          <div class="form-group">
-            <label for="routing-api" class="form-label">Routing API</label>
-            <select id="routing-api" class="form-select">
-              <option value="osrm">OSRM (Open Source Routing Machine)</option>
-              <option value="valhalla">Valhalla</option>
-              <option value="google">Google Routes API</option>
-            </select>
+          <div class="settings-card">
+            <div class="form-group">
+              <label for="routing-api">Routing API</label>
+              <div class="select-wrapper">
+                <select id="routing-api">
+                  <option value="osrm">OSRM (Open Source Routing Machine)</option>
+                  <option value="valhalla">Valhalla</option>
+                  <option value="google">Google Routes API</option>
+                </select>
+                <i data-lucide="chevron-down" class="select-icon"></i>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="api-key">API Key (if required)</label>
+              <div class="password-input">
+                <input 
+                  id="api-key" 
+                  type="password" 
+                  placeholder="Enter API key"
+                />
+                <button class="password-toggle">
+                  <i data-lucide="eye" class="icon"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="api-endpoint">API Endpoint URL</label>
+              <input 
+                id="api-endpoint" 
+                type="text" 
+                placeholder="https://api.example.com/v1/"
+              />
+            </div>
+            
+            <button class="button primary full-width">
+              <span>Save API Settings</span>
+            </button>
           </div>
-          
-          <div class="form-group">
-            <label for="api-key" class="form-label">API Key (if required)</label>
-            <input 
-              id="api-key" 
-              type="password" 
-              placeholder="Enter API key"
-              class="form-input"
-            />
-          </div>
-          
-          <div class="form-group">
-            <label for="api-endpoint" class="form-label">API Endpoint URL</label>
-            <input 
-              id="api-endpoint" 
-              type="text" 
-              placeholder="https://api.example.com/v1/"
-              class="form-input"
-            />
-          </div>
-          
-          <button class="btn btn-primary btn-block mt-20">
-            Save API Settings
-          </button>
         </div>
       </section>
-    </main>
+    </div>
 
     <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
+    <nav class="nav-bar">
       <a href="#dashboard" class="nav-item active" data-section="dashboard">
-        <i data-lucide="bar-chart-3" class="nav-icon"></i>
-        <span class="nav-label">Dashboard</span>
+        <i data-lucide="layout-dashboard" class="nav-icon"></i>
+        <span class="nav-label">Home</span>
       </a>
       <a href="#datainput" class="nav-item" data-section="datainput">
-        <i data-lucide="database" class="nav-icon"></i>
+        <i data-lucide="file-input" class="nav-icon"></i>
         <span class="nav-label">Data</span>
       </a>
       <a href="#controls" class="nav-item" data-section="controls">
@@ -452,4 +494,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
