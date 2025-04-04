@@ -101,45 +101,7 @@
           </div>
         </div>
         
-        <div class="section-header">
-          <h2>Recent Activity</h2>
-          <button class="text-button">View All</button>
-        </div>
         
-        <div class="activity-timeline">
-          <div class="timeline-item">
-            <div class="timeline-icon">
-              <i data-lucide="zap" class="icon"></i>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-time">2 hours ago</div>
-              <h3 class="timeline-title">Optimization Completed</h3>
-              <p class="timeline-description">3 facilities, 45 routes generated</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-icon">
-              <i data-lucide="send" class="icon"></i>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-time">2 hours ago</div>
-              <h3 class="timeline-title">KML Streamed to LG</h3>
-              <p class="timeline-description">Visualization sent to Liquid Galaxy</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-icon">
-              <i data-lucide="file-input" class="icon"></i>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-time">3 hours ago</div>
-              <h3 class="timeline-title">Data Imported</h3>
-              <p class="timeline-description">45 demand points from CSV</p>
-            </div>
-          </div>
-        </div>
       </section>
 
       <!-- Data Input Section -->
@@ -196,28 +158,21 @@
         </div>
         
         <div class="settings-card">
-          <div class="setting-item">
-            <div class="setting-info">
-              <label for="num-facilities">Number of Facilities</label>
-              <div class="setting-description">Must be greater than 0</div>
-            </div>
-            <div class="setting-control">
-              <input 
-                id="num-facilities" 
-                type="number" 
-                min="1"
-                value="3" 
-                step="1" 
-              />
-            </div>
+          <div class="form-group">
+            <label for="num-facilities">Number of Facilities</label>
+            <input 
+              id="num-facilities" 
+              type="number" 
+              min="1"
+              value="3" 
+              step="1" 
+            />
+            <div class="form-hint">Must be greater than 0</div>
           </div>
           
-          <div class="setting-item">
-            <div class="setting-info">
-              <label for="isochrone-duration">Isochrone Duration</label>
-              <div class="setting-description">Range: 5-60 minutes</div>
-            </div>
-            <div class="setting-control">
+          <div class="form-group">
+            <label for="isochrone-duration">Isochrone Duration</label>
+            <div class="input-with-suffix">
               <input 
                 id="isochrone-duration" 
                 type="number" 
@@ -228,6 +183,7 @@
               />
               <span class="input-suffix">min</span>
             </div>
+            <div class="form-hint">Range: 5-60 minutes</div>
           </div>
         </div>
         
@@ -274,35 +230,7 @@
           </div>
         </div>
         
-        <div class="section-header">
-          <h2>Layer Visibility</h2>
-        </div>
         
-        <div class="layer-controls">
-          <label class="toggle-control">
-            <input type="checkbox" checked />
-            <span class="toggle-track">
-              <span class="toggle-thumb"></span>
-            </span>
-            <span class="toggle-label">Facilities</span>
-          </label>
-          
-          <label class="toggle-control">
-            <input type="checkbox" checked />
-            <span class="toggle-track">
-              <span class="toggle-thumb"></span>
-            </span>
-            <span class="toggle-label">Service Areas</span>
-          </label>
-          
-          <label class="toggle-control">
-            <input type="checkbox" />
-            <span class="toggle-track">
-              <span class="toggle-thumb"></span>
-            </span>
-            <span class="toggle-label">Demand Points</span>
-          </label>
-        </div>
       </section>
 
       <!-- Settings Section -->
@@ -469,7 +397,7 @@
     <nav class="nav-bar">
       <a href="#dashboard" class="nav-item active" data-section="dashboard">
         <i data-lucide="layout-dashboard" class="nav-icon"></i>
-        <span class="nav-label">Home</span>
+        <span class="nav-label">Dashboard</span>
       </a>
       <a href="#datainput" class="nav-item" data-section="datainput">
         <i data-lucide="file-input" class="nav-icon"></i>
@@ -489,3 +417,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
