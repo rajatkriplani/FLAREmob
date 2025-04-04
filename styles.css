@@ -657,11 +657,20 @@ textarea {
   position: relative;
 }
 
+.input-with-suffix {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-suffix input {
+  width: 100%;
+  padding-right: 3rem;
+}
+
 .input-suffix {
   position: absolute;
   right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
   color: var(--text-tertiary);
   font-size: 0.875rem;
   pointer-events: none;
