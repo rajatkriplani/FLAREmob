@@ -652,6 +652,46 @@ textarea {
   margin-top: 0.5rem;
 }
 
+/* Placeholder styling for better contrast and consistency */
+::placeholder {
+  color: var(--text-tertiary);
+  opacity: 0.7;
+}
+
+/* For Firefox */
+::-moz-placeholder {
+  color: var(--text-tertiary);
+  opacity: 0.7;
+}
+
+/* For Microsoft Edge */
+::-ms-input-placeholder {
+  color: var(--text-tertiary);
+  opacity: 0.7;
+}
+
+/* For WebKit browsers like Chrome/Safari */
+::-webkit-input-placeholder {
+  color: var(--text-tertiary);
+  opacity: 0.7;
+}
+
+/* Ensure dark theme has appropriate placeholder contrast */
+body.dark-theme ::placeholder,
+body.dark-theme ::-moz-placeholder,
+body.dark-theme ::-ms-input-placeholder,
+body.dark-theme ::-webkit-input-placeholder {
+  opacity: 0.8;
+}
+
+/* Ensure focus state maintains placeholder visibility */
+input:focus::placeholder,
+textarea:focus::placeholder,
+select:focus::placeholder {
+  opacity: 0.5;
+  transition: opacity var(--transition-fast);
+}
+
 /* Setting Control */
 .setting-control {
   position: relative;
@@ -1215,4 +1255,3 @@ select {
     border-top: none;
   }
 }
-
